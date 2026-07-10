@@ -738,11 +738,11 @@ The `direction` and `strand` arguments only receive one value so that this funct
 ```{r, message=FALSE, warning=FALSE}
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
-# Five transcripts with positive strand.
-trans.ids <- c("170", "782", "974", "1364", "1387")
-
 # Take the CDS part of them.
 cds.tx0 <- cdsBy(txdb, use.names = FALSE)
+# Five transcripts with positive strand.
+pos_tx <- names(cds.tx0)[any(strand(cds.tx0) == "+")]
+trans.ids <- head(pos_tx, 5)
 cds.p <- cds.tx0[trans.ids]
 
 # The width of the region from each transcript to be picked is 200.
