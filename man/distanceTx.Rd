@@ -24,7 +24,7 @@ Evaluation function. This function calculates the mean of the distance from each
 \examples{
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
-trans.ids <- c("170", "782", "974", "1364", "1387")
+trans.ids <- c("43", "62", "974", "1364", "1387")
 A <- randomizeTx(
     txdb, trans.ids,
     random_num = 20,

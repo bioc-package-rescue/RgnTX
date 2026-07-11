@@ -23,7 +23,7 @@ This function receives three arguments: the scope region set, the target region 
 # Take five transcripts.
 # Extract the last 200 nt regions from their CDS part.
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
-trans.id.pstv <- c("170", "782", "974", "1364", "1387")
+trans.id.pstv <- c("43", "62", "974", "1364", "1387")
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 
 # download the CDS part of all transcriptome

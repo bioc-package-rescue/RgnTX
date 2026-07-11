@@ -10,7 +10,7 @@ library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 
 test_that("Test the randomizeTx function", {
-    trans.ids <- c("170", "782", "974", "1364", "1387")
+    trans.ids <- c("43", "62", "974", "1364", "1387")
     RS1 <- randomizeTx(txdb, trans.ids, random_num = 10, random_length = 100)
     expect_s4_class(RS1, "GRangesList")
     expect_equal(length(RS1), 10)

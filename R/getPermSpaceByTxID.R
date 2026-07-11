@@ -14,7 +14,7 @@
 #'
 #' @seealso \code{\link{getPermSpaceByType}}, \code{\link{getPermSpaceByFeatures}}
 #' @examples
-#' trans.ids <- c("170", "782", "974", "1364", "1387")
+#' trans.ids <- c("43", "62", "974", "1364", "1387")
 #' library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 #' txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 #' permspace <- getPermSpaceByTxID(trans.ids, txdb)

@@ -14,7 +14,7 @@ test_that("Test the GRanges2GRangesList and the GRangesList2GRanges function", {
 })
 
 test_that("Test the shiftTx function", {
-    trans.id.pstv <- c("170", "782", "974", "1364", "1387")
+    trans.id.pstv <- c("43", "62", "974", "1364", "1387")
     txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
     cds.tx0 <- cdsBy(txdb, use.names = FALSE)
     cds.p <- cds.tx0[trans.id.pstv]

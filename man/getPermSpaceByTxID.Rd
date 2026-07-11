@@ -20,7 +20,7 @@ A \code{GRangesList} object.
 This function returns 5'UTR/CDS/3'UTR/mRNA/full part of transcriptome regions grouped by corresponding transcript ids.
 }
 \examples{
-trans.ids <- c("170", "782", "974", "1364", "1387")
+trans.ids <- c("43", "62", "974", "1364", "1387")
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 permspace <- getPermSpaceByTxID(trans.ids, txdb)
