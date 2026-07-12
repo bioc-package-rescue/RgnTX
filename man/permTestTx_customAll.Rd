@@ -43,12 +43,12 @@ Perform permutation test for evaluating spatial association between region sets.
 \examples{
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
-trans.ids1<- c("170")
+trans.ids1<- c("43")
 RS1 <- randomizeTx(txdb = txdb, trans_ids = trans.ids1,
                     random_num = 20, random_length = 100)
 RS2 <- randomizeTx(txdb = txdb, trans_ids = trans.ids1,
                     random_num = 20, random_length = 100)
-trans.ids2 <-  c("170", "782", "974", "1364", "1387")
+trans.ids2 <-  c("43", "62", "974", "1364", "1387")
 RSL <- randomizeTx(txdb = txdb, trans_ids = trans.ids2,
                     random_num = 20, random_length = 100, N = 10)
 permTestTx_results <- permTestTx_customAll(RSL = RSL, RS1 = RS1, RS2 = RS2)

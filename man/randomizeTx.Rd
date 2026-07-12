@@ -31,7 +31,7 @@ Pick random regions over specified transcripts.
 \examples{
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
-trans.ids <- c("170", "782", "974", "1364", "1387")
+trans.ids <- c("43", "62", "974", "1364", "1387")
 RS1 <- randomizeTx(txdb, trans.ids, random_num = 100, random_length = 100)
 }
 \seealso{

@@ -46,7 +46,7 @@ test_that("Test the permTestTx_customPick function", {
     expect_error(plotPermResults(""), "Argument permTestTx_results must be a permTestTx.results object.")
 })
 
-trans.ids <- c("170", "782", "974", "1364", "1387")
+trans.ids <- c("43", "62", "974", "1364", "1387")
 RSL <- randomizeTx(txdb, trans.ids, random_num = 20, random_length = 100, N = 2)
 permTestTx_results <- permTestTx_customAll(RSL = RSL, RS1 = randomRegionSet1, RS2 = randomRegionSet2)
 test_that("Test the permTestTx_customAll function", {

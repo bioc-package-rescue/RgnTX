@@ -179,7 +179,7 @@ One needs to determine three arguments: a TxDb data, a set of transcript ids and
 ```{r, warning=FALSE, message=FALSE}
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene 
 type <- "mature"
-trans.ids <- c("170", "782", "974", "1364", "1387")
+trans.ids <- c("43", "62", "974", "1364", "1387")
 ```
 We feed them into the `randomizeTX` function.
 
@@ -223,7 +223,7 @@ This is another randomization function. The difference of this function and `ran
 We pick a set of five mRNAs to be the scope of randomization.
 
 ```{r, warning=FALSE, message=FALSE}
-trans.ids <- c("170", "782", "974", "1364", "1387")
+trans.ids <- c("43", "62", "974", "1364", "1387")
 exons.tx0 <- exonsBy(txdb)
 regions.A <- exons.tx0[trans.ids]
 regions.A
@@ -271,7 +271,7 @@ We generate a region set containing 100 regions of 100nt long as an example feat
 
 ```{r, message=FALSE, warning=FALSE}
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
-trans.ids<- c("170", "782", "974", "1364", "1387")
+trans.ids<- c("43", "62", "974", "1364", "1387")
 RS1 <-  randomizeTx(txdb, trans.ids, random_num = 100, random_length = 100)
 ```
 
@@ -521,17 +521,17 @@ Linder, B., et al. (2015) Single-nucleotide-resolution mapping of m$^6$A and m$^
 
 `permTestTx_customAll` needs users to provide at least three arguments: two region sets and a list of randomized region sets. 
 
-We take an easy example to explain how this function should be used. We want to test the association between two region sets come from the same transcript. We pick two region sets RS1 and RS2 in a transcript that has the id "170", and pick random region sets within a larger space containing 5 transcripts.
+We take an easy example to explain how this function should be used. We want to test the association between two region sets come from the same transcript. We pick two region sets RS1 and RS2 in a transcript that has the id "43", and pick random region sets within a larger space containing 5 transcripts.
 
 ```{r, warning=FALSE, message=FALSE}
 set.seed(12345677)
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
-trans.ids1<- c("170")
+trans.ids1<- c("43")
 RS1 <- randomizeTx(txdb = txdb, trans_ids = trans.ids1,
                    random_num = 20, random_length = 100)
 RS2 <- randomizeTx(txdb = txdb, trans_ids = trans.ids1,
                    random_num = 20, random_length = 100)
-trans.ids2 <-  c("170", "782", "974", "1364", "1387")
+trans.ids2 <-  c("43", "62", "974", "1364", "1387")
 RSL <- randomizeTx(txdb = txdb, trans_ids = trans.ids2,
                    random_num = 20, random_length = 100, N = 50)
 ```
@@ -738,11 +738,11 @@ The `direction` and `strand` arguments only receive one value so that this funct
 ```{r, message=FALSE, warning=FALSE}
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
-# Five transcripts with positive strand.
-trans.ids <- c("170", "782", "974", "1364", "1387")
-
 # Take the CDS part of them.
 cds.tx0 <- cdsBy(txdb, use.names = FALSE)
+# Five transcripts with positive strand.
+pos_tx <- names(cds.tx0)[any(strand(cds.tx0) == "+")]
+trans.ids <- head(pos_tx, 5)
 cds.p <- cds.tx0[trans.ids]
 
 # The width of the region from each transcript to be picked is 200.
